@@ -1,10 +1,20 @@
 <script setup lang="ts">
+import { computed, watchEffect } from 'vue'
 import { useCocktailsStore } from '@/stores/cocktails'
 import { storeToRefs } from 'pinia'
+import { useRoute } from 'vue-router'
 
 const store = useCocktailsStore()
-store.fetchCocktail('margarita')
 const { cocktails } = storeToRefs(store)
+const route = useRoute()
+
+const code = computed(() => route.params?.code as string)
+
+watchEffect(() => {
+  if (code.value) {
+    store.fetchCocktail(code.value)
+  }
+})
 </script>
 
 <template>
@@ -12,7 +22,7 @@ const { cocktails } = storeToRefs(store)
     <div class="cocktaile-info">
       <h1>The cocktaile title</h1>
       <p>Any description</p>
-      <p>{{ cocktails }}</p>
+      <p>{{ code ? cocktails.get(code) : 'no data' }}</p>
     </div>
     <img 
       class="img"
