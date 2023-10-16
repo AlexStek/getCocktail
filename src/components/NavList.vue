@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { useRoute } from 'vue-router'
 import { CocktailCode } from '@/const/'
+
+const route = useRoute()
 
 const menu = [
   {
@@ -24,8 +27,8 @@ const menu = [
   }
 ]
 
-const isActive = (id: number) => {
-  return id === 1
+const isActive = (code: string) => {
+  return code === route.params.code
 }
 </script>
 
@@ -36,7 +39,7 @@ const isActive = (id: number) => {
         v-for="item in menu" 
         :key="item.id"
         class="list-item" 
-        :class="isActive(item.id) ? 'active' : ''"
+        :class="isActive(item.code) ? 'active' : ''"
       >
         <router-link :to="{ name: 'cocktail', params: {code: item.code} }">
           {{ item.name }}
