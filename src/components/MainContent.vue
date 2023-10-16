@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import { useCocktailsStore } from '@/stores/cocktails'
+import { storeToRefs } from 'pinia'
+
+const store = useCocktailsStore()
+store.fetchCocktail('margarita')
+const { cocktails } = storeToRefs(store)
 </script>
 
 <template>
@@ -6,6 +12,7 @@
     <div class="cocktaile-info">
       <h1>The cocktaile title</h1>
       <p>Any description</p>
+      <p>{{ cocktails }}</p>
     </div>
     <img 
       class="img"

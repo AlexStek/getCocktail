@@ -1,12 +1,21 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import MainContent from '@/components/MainContent.vue'
 
 const routes = [
-  { path: '/', component: MainContent }
+  { 
+    path: '/', 
+    name: 'home',
+    component: MainContent 
+  },
+  {
+    path: '/:code',
+    name: 'cocktail',
+    component: MainContent
+  }
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes
 })
 

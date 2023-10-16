@@ -1,20 +1,26 @@
 <script setup lang="ts">
+import { CocktailCode } from '@/const/'
+
 const menu = [
   {
     id: 1, 
-    name: 'margarita'
+    name: 'margarita',
+    code: CocktailCode.margarita
   },
   {
     id: 2,
-    name: 'mojito'
+    name: 'mojito',
+    code: CocktailCode.mojito
   },
   {
     id: 3,
-    name: 'rum and coke'
+    name: 'rum and coke',
+    code: CocktailCode.a1
   },
   {
     id: 4,
-    name: 'gin and tonic'
+    name: 'gin and tonic',
+    code: CocktailCode.kir
   }
 ]
 
@@ -32,7 +38,9 @@ const isActive = (id: number) => {
         class="list-item" 
         :class="isActive(item.id) ? 'active' : ''"
       >
-        {{ item.name }}
+        <router-link :to="{ name: 'cocktail', params: {code: item.code} }">
+          {{ item.name }}
+        </router-link>
       </li>
     </ul>
   </nav>
