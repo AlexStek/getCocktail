@@ -13,6 +13,11 @@ import NavList from '@/components/NavList.vue'
 .layout {
   display: flex;
   height: 100%;
-  padding: 1rem 0;
+  flex-direction: column;
+  
+  @media screen and (min-width: 768px) {
+    padding: 1rem 0;
+    flex-direction: row;
+  }
 }
 </style>

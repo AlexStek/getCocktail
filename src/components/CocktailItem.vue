@@ -27,6 +27,12 @@ const ingredients = computed(() => {
 
 <template>
   <div class="cocktaile-card">
+    <img 
+      class="img"
+      :src="cocktaile.strDrinkThumb" 
+      alt="cocktaile image" 
+      loading="lazy"
+    >
     <div class="cocktaile-info">
       <h1 class="cocktaile-name">
         {{ cocktaile.strDrink }}
@@ -51,30 +57,33 @@ const ingredients = computed(() => {
         </li>
       </ul>
     </div>
-    <img 
-      class="img"
-      :src="cocktaile.strDrinkThumb" 
-      alt="cocktaile image" 
-      loading="lazy"
-    >
   </div>
 </template>
 
 <style scoped lang="scss">
 .cocktaile-card {
-  display: flex;
   background-color: #fff;
-  box-shadow: 7px 7px 8px 3px rgba(0, 0, 0, 0.5);
-  margin: 2em;
   font-family: 'Raleway', sans-serif;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    box-shadow: 7px 7px 8px 3px rgba(0, 0, 0, 0.5);
+    margin: 2em;
+    flex-direction: row;
+  }
 }
 .cocktaile-name {
   font-size: 30px;
   margin-bottom: 1em;
 }
 .img {
-  max-width: 400px;
+  max-width: 200px;
   object-fit: cover;
+  float: right;
+
+  @media screen and (min-width: 960px) {
+    max-width: 400px;
+  }
 }
 .cocktaile-info {
   padding: 10px 20px;

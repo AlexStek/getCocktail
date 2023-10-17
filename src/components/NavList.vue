@@ -57,23 +57,20 @@ const isActive = (code: string) => {
   }
 }
 .list {
-  max-height: 390px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5px 5px 0 5px;
   border-left: none;
   border-right: none;
+  display: flex;
+  
+  @media screen and (min-width: 768px) {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 5px 5px 0 5px;
+    flex-direction: column;
+  }
 }
 
 .list-item {
   list-style: none;
   background-color: rgba(0, 0, 0, 0.05);
-  background-image: 
-    linear-gradient(
-      90deg,
-      #FFD32E 10px,
-      #EEE 10px,
-      #EEE 11px,
-      transparent 11px);
   border: 1px solid #CCC;
   box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
   margin-bottom: 5px;
@@ -86,8 +83,23 @@ const isActive = (code: string) => {
   }
 
   a {
-    padding: 10px 15px 10px 25px;
+    padding: 5px;
     display: block;
+    height: 100%;
+
+    @media screen and (min-width: 768px) {
+      padding: 10px 15px 10px 25px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: 
+      linear-gradient(
+        90deg,
+        #FFD32E 10px,
+        #EEE 10px,
+        #EEE 11px,
+        transparent 11px);
   }
 }
 </style>
