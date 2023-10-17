@@ -74,7 +74,6 @@ const isActive = (code: string) => {
       #EEE 10px,
       #EEE 11px,
       transparent 11px);
-  padding: 10px 15px 10px 25px;
   border: 1px solid #CCC;
   box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
   margin-bottom: 5px;
@@ -84,6 +83,11 @@ const isActive = (code: string) => {
 
   &.active {
     background-color: rgba(0, 0, 0, 0.25);
+  }
+
+  a {
+    padding: 10px 15px 10px 25px;
+    display: block;
   }
 }
 </style>
