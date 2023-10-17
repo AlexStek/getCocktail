@@ -26,20 +26,25 @@ const ingredients = computed(() => {
 </script>
 
 <template>
-  <div class="cocktaile">
+  <div class="cocktaile-card">
     <div class="cocktaile-info">
-      <h1>{{ cocktaile.strDrink }}</h1>
+      <h1 class="cocktaile-name">
+        {{ cocktaile.strDrink }}
+      </h1>
       <div class="marks">
-        <span>🍹: {{ cocktaile.strCategory }}</span>
-        <span>🥃: {{ cocktaile.strAlcoholic }}</span>
-        <span>🥛: {{ cocktaile.strGlass }}</span>
+        <span>🍹 {{ cocktaile.strCategory }}</span>
+        <span>🥃 {{ cocktaile.strAlcoholic }}</span>
+        <span>🥛 {{ cocktaile.strGlass }}</span>
       </div>
-      <p>Instruction: {{ cocktaile.strInstructions }}</p>
+      <p class="instructions">
+        Instruction: {{ cocktaile.strInstructions }}
+      </p>
       <h2>List of ingredients</h2>
       <ul>
-        <li 
+        <li
           v-for="([ingredient, measure], key) in ingredients" 
           :key="key"
+          class="ingredient" 
         >
           <span>{{ measure }}</span>
           <span>{{ ingredient }}</span>
@@ -56,11 +61,20 @@ const ingredients = computed(() => {
 </template>
 
 <style scoped lang="scss">
-.cocktaile {
+.cocktaile-card {
   display: flex;
+  background-color: #fff;
+  box-shadow: 7px 7px 8px 3px rgba(0, 0, 0, 0.5);
+  margin: 2em;
+  font-family: 'Raleway', sans-serif;
+}
+.cocktaile-name {
+  font-size: 30px;
+  margin-bottom: 1em;
 }
 .img {
   max-width: 400px;
+  object-fit: cover;
 }
 .cocktaile-info {
   padding: 10px 20px;
@@ -71,5 +85,12 @@ const ingredients = computed(() => {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+
+.instructions {
+  margin: 1em auto;
+}
+.ingredient {
+  list-style-type: none;
 }
 </style>
