@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-import { CocktailCode } from '@/const/'
+import { ECocktailCode } from '@/types/'
 
 const route = useRoute()
 
@@ -8,22 +8,22 @@ const menu = [
   {
     id: 1, 
     name: 'margarita',
-    code: CocktailCode.margarita
+    code: ECocktailCode.margarita
   },
   {
     id: 2,
     name: 'mojito',
-    code: CocktailCode.mojito
+    code: ECocktailCode.mojito
   },
   {
     id: 3,
     name: 'rum and coke',
-    code: CocktailCode.a1
+    code: ECocktailCode.a1
   },
   {
     id: 4,
     name: 'gin and tonic',
-    code: CocktailCode.kir
+    code: ECocktailCode.kir
   }
 ]
 

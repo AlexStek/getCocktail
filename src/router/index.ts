@@ -5,13 +5,20 @@ const routes = [
   { 
     path: '/', 
     name: 'home',
-    component: MainContent 
+    redirect: {
+      name: 'cocktail',
+      params: {
+        code: 'margarita'
+      }
+    },
+    children: [
+      {
+        path: '/:code',
+        name: 'cocktail',
+        component: MainContent
+      }
+    ]
   },
-  {
-    path: '/:code',
-    name: 'cocktail',
-    component: MainContent
-  }
 ]
 
 const router = createRouter({
