@@ -12,5 +12,7 @@ import NavList from '@/components/NavList.vue'
 <style scoped lang="scss">
 .layout {
   display: flex;
+  height: 100%;
+  padding: 1rem 0;
 }
 </style>

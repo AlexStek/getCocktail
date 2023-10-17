@@ -3,6 +3,7 @@ export type TstrMeasure = `strMeasure${number}`
 
 export interface IDrink {
   idDrink: string;
+  strCategory: string;
   strDrink: string;
   strDrinkThumb: string;
   strAlcoholic: string;

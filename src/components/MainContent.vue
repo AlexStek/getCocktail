@@ -38,5 +38,6 @@ const drinks = computed(() => {
   display: flex;
   flex-direction: column;
   text-align: left;
+  overflow: auto;
 }
 </style>

@@ -29,6 +29,11 @@ const ingredients = computed(() => {
   <div class="cocktaile">
     <div class="cocktaile-info">
       <h1>{{ cocktaile.strDrink }}</h1>
+      <div class="marks">
+        <span>🍹: {{ cocktaile.strCategory }}</span>
+        <span>🥃: {{ cocktaile.strAlcoholic }}</span>
+        <span>🥛: {{ cocktaile.strGlass }}</span>
+      </div>
       <p>Instruction: {{ cocktaile.strInstructions }}</p>
       <h2>List of ingredients</h2>
       <ul>
@@ -45,6 +50,7 @@ const ingredients = computed(() => {
       class="img"
       :src="cocktaile.strDrinkThumb" 
       alt="cocktaile image" 
+      loading="lazy"
     >
   </div>
 </template>
@@ -59,5 +65,11 @@ const ingredients = computed(() => {
 .cocktaile-info {
   padding: 10px 20px;
   flex-grow: 1;
+}
+
+.marks {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 </style>
