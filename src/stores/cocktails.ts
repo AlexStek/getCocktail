@@ -8,9 +8,13 @@ export const useCocktailsStore = defineStore('cocktails',() => {
   const fetchCocktail = async (code: ECocktailCode) => {
     if (cocktails.value.has(code)) return
 
-    const res = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${code}`)
-    const data = await res.json()
-    cocktails.value.set(code, data?.drinks || [])
+    try {
+      const res = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${code}`)
+      const data = await res.json()
+      cocktails.value.set(code, data?.drinks || [])
+    } catch (error) {
+      // 
+    }
   }
 
   return {
