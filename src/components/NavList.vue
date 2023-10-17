@@ -33,7 +33,7 @@ const isActive = (code: string) => {
 </script>
 
 <template>
-  <nav>
+  <nav class="navigation">
     <ul class="list">
       <li 
         v-for="item in menu" 
@@ -50,6 +50,12 @@ const isActive = (code: string) => {
 </template>
 
 <style scoped lang="scss">
+.navigation {
+  @media screen and (min-width: 768px) {
+    flex-basis: 200px;
+    flex-shrink: 0;
+  }
+}
 .list {
   max-height: 390px;
   border: 1px solid rgba(0, 0, 0, 0.1);

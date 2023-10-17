@@ -12,8 +12,10 @@
 .wrapper {
   position: fixed;
   z-index: 100;
-  height: 100%;
-  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
